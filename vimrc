@@ -100,6 +100,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" remap nohighlight
+nnoremap <C-W><C-L> :nohl<cr>
+
 " more natural split opening
 set splitbelow
 set splitright
