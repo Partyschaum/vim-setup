@@ -4,6 +4,9 @@ set nocompatible
 " stop saving children
 set shortmess+=I
 
+" hail to the leader!
+let mapleader = ','
+
 " setup pathogen
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'vim-powerline')
@@ -86,13 +89,13 @@ let g:vim_markdown_folding_disabled=1
 let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
 
 " map FufBuffer
-map <leader>f :FufBuffer<cr>
+nnoremap <leader>f :FufBuffer<cr>
 
 " map BufExplorer
-map <leader>b :BufExplorer<cr>
+nnoremap <leader>b :BufExplorer<cr>
 
 " map NERDTreeToggle
-map <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 
 " easier split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -106,3 +109,26 @@ nnoremap <C-W><C-L> :nohl<cr>
 " more natural split opening
 set splitbelow
 set splitright
+
+" move single line up and down
+nnoremap - dd\|p
+nnoremap _ dd\|<up>\|P
+
+" instantly edit my vim
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" quick exit for visual mode
+inoremap jj <esc>
+inoremap <esc> <nop>
+
+" encourage use of 'hjkl' navigation
+inoremap <left> <nop>
+inoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <right> <nop>
+
+" fast jump to line start / end
+nnoremap H 0
+nnoremap L $
+nnoremap $ :echo 'meeep!'<cr>
