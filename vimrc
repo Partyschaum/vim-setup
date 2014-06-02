@@ -74,6 +74,10 @@ if has("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
   autocmd BufNewFile,BufRead *.pp,Puppetfile setfiletype ruby
+
+  " Thrift syntax highlighting
+  autocmd BufNewFile,BufRead *.thrift setfiletype thrift
+  autocmd FileType thrift setlocal ts=4 sts=4 sw=4 expandtab
 endif
 
 " configuration of vdebug
