@@ -79,3 +79,6 @@
 [submodule "bundle/vim-thrift"]
 	path = bundle/vim-thrift
 	url = git@github.com:sprsquish/thrift.vim.git
+[submodule "bundle/vim-rubocop"]
+	path = bundle/vim-rubocop
+	url = git@github.com:ngmy/vim-rubocop.git
