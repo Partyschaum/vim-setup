@@ -1,3 +1,6 @@
+" default to UTF-8
+set encoding=utf-8
+
 " just to be sure
 set nocompatible
 
@@ -43,9 +46,6 @@ set nowrap
 
 " fancy powerline symbols
 let g:Powerline_symbols='fancy'
-
-" default to UTF-8
-set encoding=utf-8
 
 " stop bugging me with unsaved buffers
 set hidden
