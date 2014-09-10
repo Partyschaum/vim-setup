@@ -128,12 +128,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jj <esc>
 inoremap <esc> <nop>
 
-" encourage use of 'hjkl' navigation
-inoremap <left> <nop>
-inoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <right> <nop>
-
 " fast jump to line start / end
 nnoremap H 0
 nnoremap L $
