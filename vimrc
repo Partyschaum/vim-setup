@@ -63,6 +63,7 @@ if has("autocmd")
 
   " Customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType erb setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
@@ -85,7 +86,7 @@ endif
 " configuration of vdebug
 let g:vdebug_options = {}
 let g:vdebug_options["debug_file"] = "~/.vdebug.log"
-let g:vdebug_options["path_maps"] = {"/home/stange/webs/git": "/Users/hauke/Development/jimdo", "/vagrant": "/Users/hauke/code/shindig", "/var/www/jimdo/prod": "/Users/hauke/code/jimdo"}
+let g:vdebug_options["path_maps"] = {"/var/www/jimdo/prod": "/Users/hauke/code/jimdo-blob"}
 let g:vdebug_options["server"] = '0.0.0.0'
 
 " configuration of vim markdown
@@ -132,3 +133,15 @@ inoremap <esc> <nop>
 nnoremap H 0
 nnoremap L $
 nnoremap $ :echo 'meeep!'<cr>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
