@@ -73,6 +73,9 @@ if has("autocmd")
   autocmd FileType php setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType cucumber setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType zsh setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType tf setlocal ts=2 sts=2 sw=2 expandtab
+
+  autocmd FileType go set nolist
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
@@ -139,9 +142,48 @@ if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
+  let g:ackprg = 'ag --vimgrep'
+
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Enable goimports to automatically insert import paths instead of gofmt
+let g:go_fmt_command = "goimports"
+
+" Disable this backup shit
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Setup awesome vim-go
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
