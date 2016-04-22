@@ -130,7 +130,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " quick exit for visual mode
 inoremap jj <esc>
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 
 " fast jump to line start / end
 nnoremap H 0
